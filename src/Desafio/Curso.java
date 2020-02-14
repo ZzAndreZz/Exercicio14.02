@@ -2,6 +2,7 @@ package Desafio;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Curso {
 
@@ -9,10 +10,29 @@ public class Curso {
     private int codCurso;
     private ProfessorTitular professorTitular;
     private ProfessorAdjunto professorAdjunto;
+
+    //,List<Aluno> listaAlunosMatriculados
+
+    public Curso(String nome, int codCurso, int quantidadeMaxAlunos, ProfessorTitular ptitular, ProfessorAdjunto pajunto) {
+        this.nome = nome;
+        this.codCurso = codCurso;
+        this.professorTitular = ptitular;
+        this.professorAdjunto = pajunto;
+        this.listaAlunosMatriculados = listaAlunosMatriculados;
+        this.quantidadeMaxAlunos = quantidadeMaxAlunos;
+    }
+
+    public Curso(String nome, int codCurso, int quantidadeMaxAlunos) {
+        this.nome = nome;
+        this.codCurso = codCurso;
+        this.quantidadeMaxAlunos = quantidadeMaxAlunos;
+    }
+
     private List<Aluno> listaAlunosMatriculados;
     private int quantidadeMaxAlunos;
 
-    public Curso(){};
+
+
 
     public Boolean adicionarUmAluno(Aluno umAluno) {
         if (listaAlunosMatriculados.size() <= quantidadeMaxAlunos) {
@@ -76,5 +96,30 @@ public class Curso {
 
     public void setQuantidadeMaxAlunos(int quantidadeMaxAlunos) {
         this.quantidadeMaxAlunos = quantidadeMaxAlunos;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Curso curso = (Curso) o;
+        return codCurso == curso.codCurso;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codCurso);
+    }
+
+    @Override
+    public String toString() {
+        return "Curso{" +
+                "nome='" + nome + '\'' +
+                ", codCurso=" + codCurso +
+                ", professorTitular=" + professorTitular +
+                ", professorAdjunto=" + professorAdjunto +
+                ", listaAlunosMatriculados=" + listaAlunosMatriculados +
+                ", quantidadeMaxAlunos=" + quantidadeMaxAlunos +
+                '}';
     }
 }

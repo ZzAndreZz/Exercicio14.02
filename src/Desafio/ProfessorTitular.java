@@ -2,6 +2,11 @@ package Desafio;
 
 public class ProfessorTitular extends Professor {
 
+    public ProfessorTitular(String nome, String sobrenome, int tempoCasa, int codProfessor, String especialidade) {
+        super(nome, sobrenome, tempoCasa, codProfessor);
+        this.especialidade = especialidade;
+    }
+
     private String especialidade;
 
     public String getEspecialidade() {

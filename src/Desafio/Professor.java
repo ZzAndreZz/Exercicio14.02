@@ -1,11 +1,20 @@
 package Desafio;
 
+import java.util.Objects;
+
 public class Professor {
 
     private String nome;
     private String sobrenome;
     private int tempoCasa;
     private int codProfessor;
+
+    public Professor(String nome, String sobrenome, int tempoCasa, int codProfessor) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.tempoCasa = tempoCasa;
+        this.codProfessor = codProfessor;
+    }
 
     public String getNome() {
         return nome;
@@ -37,5 +46,28 @@ public class Professor {
 
     public void setCodProfessor(int codProfessor) {
         this.codProfessor = codProfessor;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Professor professor = (Professor) o;
+        return codProfessor == professor.codProfessor;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codProfessor);
+    }
+
+    @Override
+    public String toString() {
+        return "Professor{" +
+                "nome='" + nome + '\'' +
+                ", sobrenome='" + sobrenome + '\'' +
+                ", tempoCasa=" + tempoCasa +
+                ", codProfessor=" + codProfessor +
+                '}';
     }
 }
