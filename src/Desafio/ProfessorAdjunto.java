@@ -1,3 +1,5 @@
+package Desafio;
+
 public class ProfessorAdjunto extends Professor{
 
     private int quantidadeHorasMonitoria;

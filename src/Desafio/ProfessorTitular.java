@@ -1,3 +1,5 @@
+package Desafio;
+
 public class ProfessorTitular extends Professor {
 
     private String especialidade;
